@@ -374,7 +374,11 @@ export default React.createClass({
         onChange={this.handleInputChange}
         disabled={this.props.disabled}
       />
-      <InputGroup.Addon onClick={this.clear} style={{cursor:this.state.inputValue ? "pointer" : "not-allowed"}}>{this.props.clearButtonElement}</InputGroup.Addon>
+      {
+        this.props.children
+        ||
+        <InputGroup.Addon onClick={this.clear} style={{cursor:this.state.inputValue ? "pointer" : "not-allowed"}}>{this.props.clearButtonElement}</InputGroup.Addon>
+      }
     </InputGroup>;
   }
 });
